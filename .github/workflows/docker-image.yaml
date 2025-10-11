@@ -31,7 +31,7 @@ jobs:
         id: docker-build
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: gatus
           push: true
           tags: ghcr.io/${{ github.repository }}/gatus:latest
 
