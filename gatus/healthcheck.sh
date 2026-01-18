@@ -3,11 +3,7 @@
 LOG_DIR=/var/log/gatus
 mkdir -p $LOG_DIR
 
-response=$(nc localhost $PORT << EOF
-GET /health HTTP/1.1
-
-EOF
-)
+response=$(printf "GET /health HTTP/1.1\r\n\r\n" | nc localhost $PORT)
 
 code=$(echo "$response" | grep -i HTTP/ | cut -d' ' -f2)
 
